@@ -1,2 +1,5 @@
 # index-data-tables
-Index Data Tables is a simple, custom file format to store blocks of data identified by indices. The purpose of the format is to store collections of objects complex networks of references that are not easily representable with common data structures. This repository provides utilities for creating and parsing these.
+
+Index Data Tables (.idt) is a simple, custom file format to store blocks of data identified by indices. The purpose of the format is to store collections of objects complex networks of references that are not easily representable with common data structures. This repository provides utilities for creating and parsing files in this format.
+
+The IDT format is flexible, only specifying the organization of indices and assocaited data while allowing users of the format to define how the data fields should be interpreted by their application. The format provides a method by which format users can verify that a given IDT table was intended to be read with the interpretation procedire used in their application. In applications using IDT tables for multiple types of data, this field can be used to identify which interpretation method should be used on a given table.
