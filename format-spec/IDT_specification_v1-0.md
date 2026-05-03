@@ -138,7 +138,7 @@ After the **Table Header**, the following **Data Bytes** encode **Table Entries*
 
 | Component | Size (bytes) | Description |
 |-----------|--------------|-------------|
-| **Length** | **n** (as defined in Header Byte 5) | Unsigned big‑endian integer. An length of 0 is not allowed for a **Table Entry** and if valid **Code** is not found in the next `2` bytes, abort parsing with `IDT PARSING ERROR - INVALID INSTRCUTION CODE/ZERO LENGTH FIELD` |
+| **Length** | **n** (as defined in Header Byte 5) | Unsigned big‑endian integer. An length of 0 is not allowed for a **Table Entry** and if valid **Code** is not found in the next `2` bytes, abort parsing with `IDT PARSING ERROR - INVALID INSTRUCTION CODE/ZERO LENGTH FIELD`. The value of the **Length** field is the size of the **Data** field, the bytes in the **Length** and **Index** Fields are not counted in the value of the **Length** field. |
 | **Index**| **n** (same *n* as above) | Unsigned big‑endian integer uniquely identifying a **Data** field within a **Table** If an **Index** appears more than once within a **Table**, abort parsing with `IDT PARSING ERROR - DUPLICATE INDEX` |
 | **Data**  | Value of **Length** field | Raw payload bytes. At least one byte is always present. |
 
