@@ -1,0 +1,37 @@
+# Compiled artifacts
+/target/
+
+# Build scripts output
+**/*.rs.bk
+
+# Cargo.lock (optional for libraries)
+# Uncomment if you want to track it
+Cargo.lock
+
+# IDE/editor files
+/.vscode/
+/.idea/
+/*.iml
+
+# OS‑generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Rust‑specific temporary files
+**/*.log
+**/*.tmp
+
+# Cargo package files
+*.crate
+*.tar.gz
+
+# Documentation output
+/target/doc/
+
+# Benchmark results (if using criterion)
+/target/criterion/
+
+# Generated files from bindgen or other tools
+/bindings.rs
