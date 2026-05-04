@@ -189,12 +189,13 @@ If the translation procedure changes, a new string and hash should be created to
 | **Header** | `IDT FORMAT ERROR` | *see **2.1 Header Errors** table* |
 | **Validation** | `IDT VALIDATION ERROR` | `INCOMPLETE VALIDATION BLOCK` |
 | **Metadata** | `IDT METADATA ERROR` | *see **5.2 Metadata Errors** table* |
-| **Parsing** | `IDT PARSING ERROR` | `DUPLICATE INDEX` |
-|  | `IDT PARSING ERROR` | `INVALID CODE/ZERO LENGTH FIELD` |
-|  | `IDT PARSING ERROR` | `UNKNOWN INSTRUCTION CODE` |
-|  | `IDT PARSING ERROR` | `RESERVED INSTRUCTION CODE (0xFFFF)` |
-|  | `IDT PARSING ERROR` | `UNEXPECTED END‑OF‑FILE` |
-|  | `IDT PARSING ERROR` | `UNEXPECTED DATA FOUND AFTER STOP FILE INSTRUCTION` |
+| **File Body** | `IDT FORMAT ERROR` | `DUPLICATE INDEX` |
+|  | `IDT FORMAT ERROR` | `INVALID CODE/ZERO LENGTH FIELD` |
+|  | `IDT FORMAT ERROR` | `UNKNOWN INSTRUCTION CODE` |
+|  | `IDT FORMAT ERROR` | `RESERVED INSTRUCTION CODE (0xFFFF)` |
+|  | `IDT FORMAT ERROR` | `UNEXPECTED END‑OF‑FILE` |
+|  | `IDT FORMAT ERROR` | `UNEXPECTED DATA FOUND AFTER STOP FILE INSTRUCTION` |
+| **Parsing** | `IDT PARSING ERROR` | *Varies* - Used for cases when I/O fails in parsing or some other error, not related to the contents of the file, occurs |
 
 *All other error messages remain unchanged and are listed in the respective sections.*
 

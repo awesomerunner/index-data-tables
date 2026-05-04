@@ -6,8 +6,7 @@ pub enum IDTError {
     IDTFormatError(String),
     IDTValidationError(String),
     IDTMetadataError(String),
-    IDTParsingError(String),
-    ReadError(Box<dyn Error + 'static>)
+    IDTParsingError(Box<dyn Error + 'static>)
 }
 
 impl Display for IDTError {
@@ -19,9 +18,7 @@ impl Display for IDTError {
                 write!(f, "IDT VALIDATION ERROR: {}", message),
             IDTError::IDTMetadataError(message) =>
                 write!(f, "IDT METADATA ERROR: {}", message),
-            IDTError::IDTParsingError(message) =>
-                write!(f, "IDT PARSING ERROR: {}", message),
-            IDTError::ReadError(source) =>
+            IDTError::IDTParsingError(source) =>
                 write!(f, "IDT Parser File Read failed with:\n{}", source),
         }
     }
@@ -30,7 +27,7 @@ impl Display for IDTError {
 impl Error for IDTError {
     fn source(&self) -> Option<&(dyn Error + 'static)> {
         match self {
-            IDTError::ReadError(source) =>
+            IDTError::IDTParsingError(source) =>
                 Some(source.as_ref()),
             _ => 
                 None,
