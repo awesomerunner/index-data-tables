@@ -1,4 +1,4 @@
 mod tests;
 mod idt_errors;
-mod header_parser;
+mod header;
 mod validation;
