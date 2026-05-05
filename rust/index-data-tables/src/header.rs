@@ -1,3 +1,5 @@
+// Module for reading and creating IDT headers
+
 use crate::{idt_errors::IDTError, validation::xor_slice};
 
 /**
