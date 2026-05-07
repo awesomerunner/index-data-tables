@@ -1,7 +1,4 @@
 // Module for handling IDT validation schemes
-
-use std::vec;
-
 use crate::idt_errors::IDTError;
 
 /**
