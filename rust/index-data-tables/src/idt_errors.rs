@@ -1,12 +1,12 @@
 // Module for the IDT error type
 
-use std::{error::Error, fmt::Display};
+use std::{error::Error, fmt::{Display}};
 
 /**
- * Used by parser modules asking the application to handle data
- * Indicates success or failure, where the error type on failure cannot be determined
+ * Type aliases for Errors and Results external to this crate
  */
-pub type UnknownResult = Result<(), Box<dyn Error + 'static>>;
+pub type ExternalError = Box<dyn Error + 'static>;
+pub type ExternalResult = Result<(), ExternalError>;
 
 pub type IDTResult<T> = Result<T, IDTError>;
 
@@ -15,7 +15,8 @@ pub enum IDTError {
     IDTFormatError(String),
     IDTValidationError(String),
     IDTMetadataError(String),
-    IDTParsingError(Box<dyn Error + 'static>)
+    IDTParsingError(ExternalError),
+    IDTApplicationError(ExternalError),
 }
 
 impl Display for IDTError {
@@ -28,7 +29,9 @@ impl Display for IDTError {
             IDTError::IDTMetadataError(message) =>
                 write!(f, "IDT METADATA ERROR: {}", message),
             IDTError::IDTParsingError(source) =>
-                write!(f, "IDT Parser File Read failed with:\n{}", source),
+                write!(f, "IDT Parser failed with external error:\n{}", source),
+            IDTError::IDTApplicationError(source) =>
+                write!(f, "IDT Parser terminated on application error:\n{}", source)
         }
     }
 }

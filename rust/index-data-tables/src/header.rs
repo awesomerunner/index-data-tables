@@ -1,6 +1,6 @@
 // Module for reading and creating IDT headers
 
-use crate::{idt_errors::IDTError, validation::xor_slice};
+use crate::{idt_errors::IDTError, parity::xor_slice};
 
 /**
  * Header Data of a valid IDT file
