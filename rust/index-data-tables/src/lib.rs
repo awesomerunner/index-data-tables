@@ -1,7 +1,5 @@
 mod tests;
 mod idt_errors;
-mod header;
-mod validation;
-mod metadata;
-mod table;
+mod idt_io; // Parser and writer
 mod parity;
+mod merge_bytes;

@@ -1,6 +1,6 @@
 // Module for parsing IDT Metadata
 
-use crate::idt_errors::{IDTError, UnknownResult};
+use crate::idt_errors::{IDTError, ExternalResult};
 
 // Set by IDT specification
 const REQUIRED_METADATA_BYTES: usize = 24;
@@ -14,15 +14,15 @@ const REQUIRED_METADATA_BYTES: usize = 24;
 */ 
 pub trait IDTMetadataReciever {
     /// Reads in the file timestamp (last edit) to the reciever
-    fn recieve_file_timestamp(&mut self, unix_time: i64) -> UnknownResult;
+    fn recieve_file_timestamp(&mut self, unix_time: i64) -> ExternalResult;
 
     /// Reads in the file creation timestamps
-    fn recieve_original_timestamp(&mut self, unix_time: i64) -> UnknownResult;
+    fn recieve_original_timestamp(&mut self, unix_time: i64) -> ExternalResult;
 
-    fn receive_idt_flags(&mut self, flags: u8) -> UnknownResult;
+    fn receive_idt_flags(&mut self, flags: u8) -> ExternalResult;
 
     /// Revieves metadata specific to the application's use case
-    fn recieve_additional_metadata(&mut self, metadata_bytes: &[u8]) -> UnknownResult;
+    fn recieve_additional_metadata(&mut self, metadata_bytes: &[u8]) -> ExternalResult;
 }
 
 /**
