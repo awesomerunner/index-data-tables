@@ -1,17 +1,9 @@
 // Module for parsing IDT Metadata
 
-use std::error::Error;
-
-use crate::idt_errors::IDTError;
+use crate::idt_errors::{IDTError, UnknownResult};
 
 // Set by IDT specification
 const REQUIRED_METADATA_BYTES: usize = 24;
-
-/**
- * Used when the parser is asking the application to handle data
- * Indicates success or failure, where the error type on failure cannot be determined
- */
-type UnknownResult = Result<(), Box<dyn Error + 'static>>;
 
 /**
  * Since the data types to be used for application-specific medatadata this data are unknown,

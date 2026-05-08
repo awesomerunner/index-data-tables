@@ -2,6 +2,14 @@
 
 use std::{error::Error, fmt::Display};
 
+/**
+ * Used by parser modules asking the application to handle data
+ * Indicates success or failure, where the error type on failure cannot be determined
+ */
+pub type UnknownResult = Result<(), Box<dyn Error + 'static>>;
+
+pub type IDTResult<T> = Result<T, IDTError>;
+
 #[derive(Debug)]
 pub enum IDTError {
     IDTFormatError(String),
